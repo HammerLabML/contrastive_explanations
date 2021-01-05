@@ -9,9 +9,10 @@ from sklearn.metrics import f1_score
 from sklearn.preprocessing import StandardScaler
 from sklearn_lvq import GlvqModel
 
+import random
 
-from utils import score, get_turned_on_features, arrange_results_in_latex_table, load_data_iris, load_data_breast_cancer, load_data_houseprices, load_data_wine
-from linear_models import compute_pertinent_positive as compute_pertinent_positive_of_linear_model, improve_pertinent_positive as improve_pertinent_positive_of_linear_model
+from utils import score, get_turned_on_features, arrange_results_in_latex_table, load_data_iris, load_data_breast_cancer, load_data_houseprices, load_data_wine, load_data_digits
+from linear_models import compute_strict_pertinent_positive, compute_pertinent_positive as compute_pertinent_positive_of_linear_model, improve_pertinent_positive as improve_pertinent_positive_of_linear_model
 from lvq_models import compute_pertinent_positive as compute_pertinent_positive_of_lvq_model, improve_pertinent_positive as improve_pertinent_positive_of_lvq_model
 from quadratic_models import compute_pertinent_positive as compute_pertinent_positive_of_quadratic_model, improve_pertinent_positive as improve_pertinent_positive_of_quadratic_model
 
@@ -38,12 +39,18 @@ if __name__ == "__main__":
             X, y, base_values = load_data_breast_cancer()
         elif dataset_desc == "wine":
             X, y, base_values = load_data_wine()
+        elif dataset_desc == "digits":
+            X, y, base_values = load_data_digits()
         print(f"Dimensionality: {X.shape[1]}")
 
         # Results
         scores_pp = {"sparsity": [], "closeness": []}
         scores_pp_plus = {"sparsity": [], "closeness": []}
         scores_features_overlap = []
+        scores_pp_strict = []
+
+        original_samples = []
+        pertinent_positives = []
 
         # k-fold cross validation
         kf = KFold(n_splits=n_kfold_splits, shuffle=True)
@@ -60,7 +67,7 @@ if __name__ == "__main__":
             model, compute_pertinent_positive, improve_pertinent_positive = None, None, None
 
             if model_desc == "logreg":
-                model = LogisticRegression(multi_class='multinomial')
+                model = LogisticRegression(multi_class='multinomial')   # OK
                 compute_pertinent_positive = compute_pertinent_positive_of_linear_model
                 improve_pertinent_positive = improve_pertinent_positive_of_linear_model
             elif model_desc == "glvq":
@@ -128,12 +135,31 @@ if __name__ == "__main__":
                 s_pp_plus = score(x_orig, x_pp_plus)
                 scores_pp_plus["sparsity"].append(s_pp_plus[0]);scores_pp_plus["closeness"].append(s_pp_plus[1])
 
+                # If possible - compute a globally optimal solution for comparison
+                if model_desc == "logreg":
+                    x_pp_strict = compute_strict_pertinent_positive(x_orig, y_orig, base_values, model)
+                    s_pp_strict = score(x_orig, x_pp_strict)
+                    scores_pp_strict.append(s_pp_strict[0])
+
+                # Save samples
+                original_samples.append(x_orig)
+                pertinent_positives.append(x_pp_plus)
+
             print(f"Number of missclassifications (skiped): {n_wrong_classification}")
             print(f"Number of failures (skiped): {n_failures}")
             print(f"Number of invalid counterfactuals: {n_cf_failures}")
 
+        # Save samples
+        #np.savez("data.npz", x_orig=np.array(original_samples), x_pp_plus=np.array(pertinent_positives))
+
         # Summarize results
         print(f"Num samples: {len(scores_pp['sparsity'])}")
+
+        if model_desc == "logreg":
+            print("\nPP-Strict")
+            print(scores_pp_strict)
+            print(f"=>Sparsity:\nMean: {np.mean(scores_pp_strict)}\nMedian: {np.median(scores_pp_strict)}\nVar: {np.var(scores_pp_strict)}\nStd: {np.std(scores_pp_strict)}")
+        
 
         print("\nPP")
         print(scores_pp['sparsity'])

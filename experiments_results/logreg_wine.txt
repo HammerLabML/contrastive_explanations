@@ -1,0 +1,146 @@
+Dimensionality: 13
+Train size: (86, 13)
+Test size: (44, 13)
+F1-score: 0.975609756097561
+
+Classification of the zero vector: 1
+Number of missclassifications (skiped): 1
+Number of failures (skiped): 23
+Number of invalid counterfactuals: 0
+Train size: (87, 13)
+Test size: (43, 13)
+F1-score: 1.0
+
+Classification of the zero vector: 1
+Number of missclassifications (skiped): 0
+Number of failures (skiped): 22
+Number of invalid counterfactuals: 0
+Train size: (87, 13)
+Test size: (43, 13)
+F1-score: 0.9824561403508771
+
+Classification of the zero vector: 0
+Number of missclassifications (skiped): 1
+Number of failures (skiped): 1
+Number of invalid counterfactuals: 0
+Num samples: 27
+
+PP-Strict
+[12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0]
+=>Sparsity:
+Mean: 12.0
+Median: 12.0
+Var: 0.0
+Std: 0.0
+
+PP
+[12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0]
+[0.5108653336227651, 0.06352052484859061, 0.7065786874614665, 0.7904558391066242, 0.8184148896550102, 0.7680885986679155, 0.6702319217485647, 0.2033157775905201, 0.58076295999373, 0.39343732131954434, 0.06352052484859061, 0.6227015358163087, 0.7065786874614665, 0.58076295999373, 0.8295985098743645, 0.7401295481195297, 0.8044353643808172, 0.5388243841711511, 0.6003342953776001, 0.06352052484859061, 1.0560668193162903, 0.58076295999373, 0.9246592817388767, 0.9442306171227467, 0.9022920413001679, 0.661844206584049, 0.3431110303324497]
+=>Sparsity:
+Mean: 12.0
+Median: 12.0
+Var: 0.0
+Std: 0.0
+=>Closeness:
+Mean: 0.609964635010933
+Median: 0.661844206584049
+Var: 0.07115593371992422
+Std: 0.2667506958190067
+
+PP+
+[0.0008653336227650854, 0.0035205248485906115, 0.0034213125385336163, 0.0004558391066242784, 0.0015851103449897597, 0.0019114013320844503, 0.0002319217485646785, 0.0033157775905201525, 0.0007629599937299947, 0.0034373213195443286, 0.0035205248485906115, 0.00270153581630872, 0.0034213125385336163, 0.0007629599937299947, 0.00040149012563550635, 0.00012954811952958778, 0.004435364380817264, 0.0011756158288489527, 0.0003342953776001023, 0.0035205248485906115, 0.003933180683709514, 0.0007629599937299947, 0.004659281738876642, 0.004230617122746638, 0.002292041300167913, 0.0018442065840489352, 0.003111030332449749]
+=>Sparsity:
+Mean: 12.0
+Median: 12.0
+Var: 0.0
+Std: 0.0
+=>Closeness:
+Mean: 0.002249777484439308
+Median: 0.002292041300167913
+Var: 2.1376824284542533e-06
+Std: 0.0014620815396051798
+
+Feature overlap
+[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+=>
+Mean: 1.0
+Median: 1.0
+Var: 0.0
+Std: 0.0
+
+$12.0 (\pm 0.0)$
+$0.61 (\pm 0.07)$
+$0.0 (\pm 0.0)$
+$1.0 (\pm 0.0)$
+Error in AA type 1, iter: 87, info: 0, norm 1.83e+05
+Error in AA type 1, iter: 88, info: 0, norm 2.53e+04
+Error in AA type 1, iter: 89, info: 0, norm 1.62e+04
+Error in AA type 1, iter: 91, info: 0, norm 2.62e+04
+Error in AA type 1, iter: 92, info: 0, norm 1.48e+04
+Error in AA type 1, iter: 93, info: 0, norm 2.16e+04
+Error in AA type 1, iter: 94, info: 0, norm 3.29e+04
+Error in AA type 1, iter: 265, info: 0, norm 1.05e+04
+Error in AA type 1, iter: 1065, info: 0, norm 2.70e+04
+Error in AA type 1, iter: 1182, info: 0, norm 1.21e+04
+Error in AA type 1, iter: 38, info: 0, norm 1.78e+04
+Error in AA type 1, iter: 39, info: 0, norm 1.67e+05
+Error in AA type 1, iter: 40, info: 0, norm 1.05e+04
+Error in AA type 1, iter: 36, info: 0, norm 1.61e+05
+Error in AA type 1, iter: 37, info: 0, norm 5.85e+05
+Error in AA type 1, iter: 38, info: 0, norm 1.08e+05
+Error in AA type 1, iter: 39, info: 0, norm 1.41e+07
+Error in AA type 1, iter: 40, info: 0, norm 4.03e+05
+Error in AA type 1, iter: 41, info: 0, norm 8.89e+04
+Error in AA type 1, iter: 42, info: 0, norm 7.29e+04
+Error in AA type 1, iter: 43, info: 0, norm 4.49e+04
+Error in AA type 1, iter: 44, info: 0, norm 3.01e+04
+Error in AA type 1, iter: 45, info: 0, norm 1.43e+04
+Error in AA type 1, iter: 46, info: 0, norm 1.70e+04
+Error in AA type 1, iter: 49, info: 0, norm 1.34e+04
+Error in AA type 1, iter: 51, info: 0, norm 4.53e+04
+Error in AA type 1, iter: 52, info: 0, norm 3.74e+04
+Error in AA type 1, iter: 34, info: 0, norm 9.03e+04
+Error in AA type 1, iter: 35, info: 0, norm 1.98e+04
+Error in AA type 1, iter: 36, info: 0, norm 2.09e+04
+Error in AA type 1, iter: 34, info: 0, norm 1.53e+05
+Error in AA type 1, iter: 35, info: 0, norm 1.19e+05
+Error in AA type 1, iter: 36, info: 0, norm 1.30e+05
+Error in AA type 1, iter: 37, info: 0, norm 1.41e+05
+Error in AA type 1, iter: 38, info: 0, norm 4.31e+05
+Error in AA type 1, iter: 39, info: 0, norm 7.83e+04
+Error in AA type 1, iter: 40, info: 0, norm 3.90e+04
+Error in AA type 1, iter: 41, info: 0, norm 4.16e+04
+Error in AA type 1, iter: 42, info: 0, norm 2.99e+04
+Error in AA type 1, iter: 43, info: 0, norm 1.29e+04
+Error in AA type 1, iter: 47, info: 0, norm 1.12e+04
+Error in AA type 1, iter: 49, info: 0, norm 2.86e+04
+Error in AA type 1, iter: 100, info: 0, norm 1.11e+05
+Error in AA type 1, iter: 101, info: 0, norm 8.30e+04
+Error in AA type 1, iter: 102, info: 0, norm 5.43e+04
+Error in AA type 1, iter: 103, info: 0, norm 1.60e+05
+Error in AA type 1, iter: 104, info: 0, norm 8.79e+04
+Error in AA type 1, iter: 514, info: 0, norm 1.34e+04
+Error in AA type 1, iter: 55, info: 0, norm 6.72e+05
+Error in AA type 1, iter: 56, info: 0, norm 8.82e+04
+Error in AA type 1, iter: 57, info: 0, norm 6.75e+04
+Error in AA type 1, iter: 58, info: 0, norm 4.20e+05
+Error in AA type 1, iter: 59, info: 0, norm 9.54e+04
+Error in AA type 1, iter: 60, info: 0, norm 2.31e+04
+Error in AA type 1, iter: 61, info: 0, norm 1.55e+04
+Error in AA type 1, iter: 62, info: 0, norm 4.53e+04
+Error in AA type 1, iter: 63, info: 0, norm 2.81e+04
+Error in AA type 1, iter: 64, info: 0, norm 1.36e+04
+Error in AA type 1, iter: 65, info: 0, norm 1.18e+04
+Error in AA type 1, iter: 66, info: 0, norm 1.21e+04
+Error in AA type 1, iter: 67, info: 0, norm 3.23e+04
+Error in AA type 1, iter: 69, info: 0, norm 1.66e+05
+Error in AA type 1, iter: 71, info: 0, norm 1.37e+04
+Error in AA type 1, iter: 72, info: 0, norm 1.52e+04
+Error in AA type 1, iter: 73, info: 0, norm 2.72e+04
+Error in AA type 1, iter: 528, info: 0, norm 5.31e+04
+Error in AA type 1, iter: 529, info: 0, norm 5.56e+04
+Error in AA type 1, iter: 530, info: 0, norm 4.59e+04
+Error in AA type 1, iter: 531, info: 0, norm 5.89e+04
+Error in AA type 1, iter: 532, info: 0, norm 6.64e+04
+Error in AA type 1, iter: 533, info: 0, norm 1.47e+06
+Error in AA type 1, iter: 534, info: 0, norm 7.08e+04

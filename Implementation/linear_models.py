@@ -4,6 +4,37 @@ import cvxpy as cp
 from utils import score
 
 
+def compute_strict_pertinent_positive(x_orig, y_orig, base_values, model):
+    w, b = model.coef_.reshape(-1), model.intercept_[0] # Extract model parameters
+    
+    dim = x_orig.shape[0]
+    y_target = -1 if y_orig == 0 else 1
+
+    # Compute feature scores
+    z = [y_target * x_orig[i]*w[i] for i in range(dim)]
+
+    # Sort feature scores
+    z_idx = np.argsort(z)[::-1][:dim]
+
+    # Find subset of indices
+    idx = []
+    t = 0
+    for i in z_idx:
+        t += z[i]
+        idx.append(i)
+
+        if t + y_target * b > 0:
+            break
+    
+    if not (t + y_target * b > 0):
+        return None
+    else:
+        x = np.zeros(dim)
+        for i in idx:
+            x[i] = x_orig[i]
+        return x
+
+
 def compute_pertinent_positive(x_orig, y_orig, base_values, model):
     w, b = model.coef_.reshape(-1), model.intercept_[0] # Extract model parameters
 
@@ -37,7 +68,7 @@ def improve_pertinent_positive(x_orig, y_orig, base_values, pp_orig, model):
 
     dim = x_orig.shape[0]
     y_target = -1 if y_orig == 0 else 1
-    
+
     fixed_indices = []
     for i in range(dim):
         if np.abs(pp_orig[i] - base_values[i]) <= + 0.1:   # Fix features that are already close to zero (meaning that they might not 'strongly influence' the prediction)
